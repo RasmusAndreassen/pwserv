@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HOME</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<div class="tab">
+		<button class="tablinks active" onclick="location.href='/'">Home</button>
+		<button class="tablinks" onclick="location.href='/login'">Login</button>
+		<button class="tablinks" onclick="location.href='/register'">Register</button>
+	</div>
+
+	<div class="container">
+		<br>
+		<h1> Home page </h1>
+		<br>
+		<p>
+			{% if username == 'General Kenobi'%}
+				You are a <b>bold</b> one!
+			{% elif username %}
+				Welcome {{username}}
+			{% else %}
+				Please log in or register
+			{% endif %}
+		</p>
+	</div>
+</body>
+</html>

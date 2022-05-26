@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Register page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+   <div class="tab">
+      <button class="tablinks" onclick="location.href='/'">Home</button>
+      <button class="tablinks" onclick="location.href='/login'">Login</button>
+      <button class="tablinks active" onclick="location.href='/register'">Register</button>
+   </div>
+
+    <div class="container">
+        <br>
+        <h1>Please Register Here..</h1>
+        <br>
+        <form action="" method="post">
+        <input required type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}"><br><br>
+        <input required type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}"><br>
+        <input required type="password" placeholder="Confirm password" name="matchpassword" value="{{
+          request.form.matchpassword }}"><br>
+        <input class="btn btn-default" type="submit" value="Register">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="container errors">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+      {% endwith %}
+    </div>
+  </body>
+</html>
